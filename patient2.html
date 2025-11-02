@@ -13,6 +13,7 @@
       background-color: #f9f9f9;
       text-align: center;
     }
+
     header {
       position: relative;
       height: 300px;
@@ -23,6 +24,7 @@
       background-position: center;
       background-repeat: no-repeat;
     }
+
     header::before {
       content: "";
       background: rgba(0, 0, 0, 0.5);
@@ -32,18 +34,25 @@
       width: 100%;
       height: 100%;
     }
+
     header div {
       position: relative;
       z-index: 1;
       padding-top: 100px;
     }
+
+    h1 { margin: 0; font-size: 36px; }
+    p { font-size: 18px; margin-top: 5px; }
+
     .gallery img {
       width: 150px;
       margin: 10px;
       border-radius: 8px;
       cursor: pointer;
       transition: transform 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
+
     .gallery img:hover {
       transform: scale(1.05);
     }
@@ -84,6 +93,7 @@
       color: white;
       text-align: center;
       padding: 15px 0;
+      margin-top: 30px;
     }
   </style>
 </head>
@@ -91,8 +101,8 @@
 
 <header>
   <div>
-    <h1 style="margin: 0; font-size: 36px;">WOUND CARE MATALE</h1>
-    <p style="font-size: 18px;">Professional Wound Care Services</p>
+    <h1>WOUND CARE MATALE</h1>
+    <p>Professional Wound Care Services</p>
   </div>
 </header>
 
@@ -100,15 +110,51 @@
   <h2>Patient 2</h2>
 
   <div class="gallery">
-    <img src="wound/Kasun%27s%20nangi/20231119_175439.jpg" alt="patient2" onclick="openPopup(this)">
-    <img src="wound/Kasun%27s%20nangi/20231119_175444.jpg" alt="patient2" onclick="openPopup(this)">
-    <img src="wound/Kasun%27s%20nangi/20231119_175451.jpg" alt="patient2" onclick="openPopup(this)">
-    <img src="wound/Kasun%27s%20nangi/20231123_195437.jpg" alt="patient2" onclick="openPopup(this)">
-    <img src="wound/Kasun%27s%20nangi/20231123_195442.jpg" alt="patient2" onclick="openPopup(this)">
-    <img src="wound/Kasun%27s%20nangi/20231125_153722.jpg" alt="patient2" onclick="openPopup(this)">
-    <img src="wound/Kasun%27s%20nangi/20231125_153731.jpg" alt="patient2" onclick="openPopup(this)">
-    <img src="wound/Kasun%27s%20nangi/20231128_201550.jpg" alt="patient2" onclick="openPopup(this)">
-    <img src="wound/Kasun%27s%20nangi/20231128_201559.jpg" alt="patient2" onclick="openPopup(this)">
-    <img src="wound/Kasun%27s%20nangi/20231128_201612.jpg" alt="patient2" onclick="openPopup(this)">
-    <img src="wound/Kasun%27s%20nangi/20231201_183619.jpg" alt="patient2" onclick="openPopup(this)">
-    <img src="wound/Kasun%27s%20nangi/20231201_183646.jpg" alt="patient2" o_
+    <img src="wound/Kasun%27s%20nangi/20231119_175439.jpg" alt="patient2" loading="lazy" onclick="openPopup(this)">
+    <img src="wound/Kasun%27s%20nangi/20231119_175444.jpg" alt="patient2" loading="lazy" onclick="openPopup(this)">
+    <img src="wound/Kasun%27s%20nangi/20231119_175451.jpg" alt="patient2" loading="lazy" onclick="openPopup(this)">
+    <img src="wound/Kasun%27s%20nangi/20231123_195437.jpg" alt="patient2" loading="lazy" onclick="openPopup(this)">
+    <img src="wound/Kasun%27s%20nangi/20231123_195442.jpg" alt="patient2" loading="lazy" onclick="openPopup(this)">
+    <img src="wound/Kasun%27s%20nangi/20231125_153722.jpg" alt="patient2" loading="lazy" onclick="openPopup(this)">
+    <img src="wound/Kasun%27s%20nangi/20231125_153731.jpg" alt="patient2" loading="lazy" onclick="openPopup(this)">
+    <img src="wound/Kasun%27s%20nangi/20231128_201550.jpg" alt="patient2" loading="lazy" onclick="openPopup(this)">
+    <img src="wound/Kasun%27s%20nangi/20231128_201559.jpg" alt="patient2" loading="lazy" onclick="openPopup(this)">
+    <img src="wound/Kasun%27s%20nangi/20231128_201612.jpg" alt="patient2" loading="lazy" onclick="openPopup(this)">
+    <img src="wound/Kasun%27s%20nangi/20231201_183619.jpg" alt="patient2" loading="lazy" onclick="openPopup(this)">
+    <img src="wound/Kasun%27s%20nangi/20231201_183646.jpg" alt="patient2" loading="lazy" onclick="openPopup(this)">
+  </div>
+</main>
+
+<!-- Popup overlay -->
+<div class="popup" id="popup">
+  <span class="close" id="close">&times;</span>
+  <img id="popup-img" src="">
+</div>
+
+<footer>
+  <p>© <span id="year"></span> WCM</p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const popup = document.getElementById("popup");
+  const popupImg = document.getElementById("popup-img");
+  const closeBtn = document.getElementById("close");
+
+  function openPopup(img) {
+    popup.style.display = "flex";
+    popupImg.src = img.src;
+  }
+
+  closeBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+  });
+
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) popup.style.display = "none";
+  });
+</script>
+
+</body>
+</html>
