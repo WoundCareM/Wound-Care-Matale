@@ -38,27 +38,45 @@
     h1 { padding-top: 100px; margin: 0; font-size: 36px; }
     p { font-size: 18px; margin-top: 5px; }
 
+    a.back {
+      display: inline-block;
+      margin: 20px;
+      padding: 10px 20px;
+      background: #007acc;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 30px;
+    }
+
     .gallery img {
       width: 150px;
-      margin: 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.2s;
+      height: auto;
+      border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+      cursor: pointer;
     }
 
     .gallery img:hover {
       transform: scale(1.1);
     }
 
-    /* Popup modal */
+    /* Popup (Lightbox) Styles */
     .popup {
       display: none;
       position: fixed;
-      z-index: 1000;
+      z-index: 999;
       left: 0; top: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
+      background-color: rgba(0, 0, 0, 0.85);
       justify-content: center;
       align-items: center;
     }
@@ -67,17 +85,17 @@
       max-width: 90%;
       max-height: 90%;
       border-radius: 10px;
-      box-shadow: 0 0 15px rgba(255,255,255,0.3);
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
     }
 
-    .popup span {
-      position: absolute;
+    .close {
+      position: fixed;
       top: 20px;
-      right: 35px;
+      right: 30px;
       color: white;
-      font-size: 40px;
+      font-size: 30px;
+      text-decoration: none;
       font-weight: bold;
-      cursor: pointer;
     }
 
     footer {
@@ -86,6 +104,7 @@
       padding: 15px 0;
       margin-top: 30px;
     }
+
   </style>
 </head>
 <body>
@@ -93,25 +112,26 @@
     <h1>Patient 3 - Wound Progress</h1>
     <p>Wound Care Matale</p>
   </header>
+
+  <!-- Back Button -->
   <a class="back" href="index.html">⬅ Back to Home</a>
 
-  <main>
-    <div class="gallery">
-      <img src="wound/Kithsiri ayya/20240219_205748.jpg" alt="patient3">
-      <img src="wound/Kithsiri ayya/20240219_205751.jpg" alt="patient3">
-      <img src="wound/Kithsiri ayya/20240219_205756.jpg" alt="patient3">
-      <img src="wound/Kithsiri ayya/20240221_211046.jpg" alt="patient3">
-      <img src="wound/Kithsiri ayya/20240221_211049.jpg" alt="patient3">
-      <img src="wound/Kithsiri ayya/20240221_211054.jpg" alt="patient3">
-      <img src="wound/Kithsiri ayya/20240221_211233.jpg" alt="patient3">
-      <img src="wound/Kithsiri ayya/20240227_195820.jpg" alt="patient3">
-      <img src="wound/Kithsiri ayya/20240227_195823.jpg" alt="patient3">
-    </div>
-  </main>
+  <div class="gallery">
+    <img src="wound/Kithsiri%20ayya/20240219_205748.jpg" alt="Patient 3">
+    <img src="wound/Kithsiri%20ayya/20240219_205751.jpg" alt="Patient 3">
+    <img src="wound/Kithsiri%20ayya/20240219_205756.jpg" alt="Patient 3">
+    <img src="wound/Kithsiri%20ayya/20240221_211046.jpg" alt="Patient 3">
+    <img src="wound/Kithsiri%20ayya/20240221_211049.jpg" alt="Patient 3">
+    <img src="wound/Kithsiri%20ayya/20240221_211054.jpg" alt="Patient 3">
+    <img src="wound/Kithsiri%20ayya/20240221_211233.jpg" alt="Patient 3">
+    <img src="wound/Kithsiri%20ayya/20240227_195820.jpg" alt="Patient 3">
+    <img src="wound/Kithsiri%20ayya/20240227_195823.jpg" alt="Patient 3">
+  </div>
 
+  <!-- Popup Lightbox -->
   <div class="popup" id="popup">
-    <span id="close">&times;</span>
-    <img id="popup-img" src="">
+    <a href="#" class="close">&times;</a>
+    <img id="popupImg" src="" alt="">
   </div>
 
   <footer>
@@ -121,59 +141,22 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    const popup = document.getElementById("popup");
-    const popupImg = document.getElementById("popup-img");
-    const closeBtn = document.getElementById("close");
+    const galleryImages = document.querySelectorAll('.gallery img');
+    const popup = document.getElementById('popup');
+    const popupImg = document.getElementById('popupImg');
 
-    document.querySelectorAll(".gallery img").forEach(img => {
-      img.addEventListener("click", () => {
-        popup.style.display = "flex";
+    galleryImages.forEach(img => {
+      img.addEventListener('click', () => {
         popupImg.src = img.src;
+        popup.style.display = 'flex';
       });
     });
 
-    closeBtn.addEventListener("click", () => popup.style.display = "none");
-    popup.addEventListener("click", (e) => {
-      if (e.target === popup) popup.style.display = "none";
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup || e.target.classList.contains('close')) {
+        popup.style.display = 'none';
+      }
     });
   </script>
-</body>
-</html>
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Wound Care Matale</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body style="font-family: 'Times New Roman', Times, serif; margin: 0; padding: 0; background-color: #f9f9f9;">
-<header style="position: relative; height: 300px; color: white; text-align: center;
-  background-image: url('https://woundcarem.github.io/Wound-Care-Matale/ChatGPT%20Image%20Nov%201,%202025,%2011_25_53%20AM.png');
-  background-size: cover; background-position: center; background-repeat: no-repeat;">
-  <div style="background: rgba(0, 0, 0, 0.5); position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
-  <div style="position: relative; z-index: 1; padding-top: 100px;">
-    <h1 style="margin: 0; font-size: 36px;">WOUND CARE MATALE</h1>
-    <p style="font-size: 18px;">Professional Wound Care Services</p>
-  </div>
-</header>
-<main style='text-align:center; padding:40px;'>
-<h2>Patient3</h2>
-<a href='wound/Kithsiri ayya/20240219_205748.jpg' target='_blank'><img src='wound/Kithsiri ayya/20240219_205748.jpg' alt='patient3' style='width:150px; margin:10px; border-radius:8px;'></a>
-<a href='wound/Kithsiri ayya/20240219_205751.jpg' target='_blank'><img src='wound/Kithsiri ayya/20240219_205751.jpg' alt='patient3' style='width:150px; margin:10px; border-radius:8px;'></a>
-<a href='wound/Kithsiri ayya/20240219_205756.jpg' target='_blank'><img src='wound/Kithsiri ayya/20240219_205756.jpg' alt='patient3' style='width:150px; margin:10px; border-radius:8px;'></a>
-<a href='wound/Kithsiri ayya/20240221_211046.jpg' target='_blank'><img src='wound/Kithsiri ayya/20240221_211046.jpg' alt='patient3' style='width:150px; margin:10px; border-radius:8px;'></a>
-<a href='wound/Kithsiri ayya/20240221_211049.jpg' target='_blank'><img src='wound/Kithsiri ayya/20240221_211049.jpg' alt='patient3' style='width:150px; margin:10px; border-radius:8px;'></a>
-<a href='wound/Kithsiri ayya/20240221_211054.jpg' target='_blank'><img src='wound/Kithsiri ayya/20240221_211054.jpg' alt='patient3' style='width:150px; margin:10px; border-radius:8px;'></a>
-<a href='wound/Kithsiri ayya/20240221_211233.jpg' target='_blank'><img src='wound/Kithsiri ayya/20240221_211233.jpg' alt='patient3' style='width:150px; margin:10px; border-radius:8px;'></a>
-<a href='wound/Kithsiri ayya/20240227_195820.jpg' target='_blank'><img src='wound/Kithsiri ayya/20240227_195820.jpg' alt='patient3' style='width:150px; margin:10px; border-radius:8px;'></a>
-<a href='wound/Kithsiri ayya/20240227_195823.jpg' target='_blank'><img src='wound/Kithsiri ayya/20240227_195823.jpg' alt='patient3' style='width:150px; margin:10px; border-radius:8px;'></a>
-</main>
-<footer style="background-color: #222; color: white; text-align: center; padding: 15px 0;">
-  <p>© <span id="year"></span> WCM</p>
-</footer>
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 </body>
 </html>
