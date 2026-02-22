@@ -115,10 +115,11 @@
   <a class="back" href="index.html">⬅ Back to Home</a>
 
   <div class="gallery">
-  <img src="wound/Dev dad/small/20240124_130023.jpg" data-full="wound/Dev dad/20240124_130023.jpg" alt="Wound progress" loading="lazy">
-    <img src="wound/Dev dad/small/20240124_130026.jpg" data-full="wound/Dev dad/20240124_130026.jpg" alt="Wound progress" loading="lazy">
-    <img src="wound/Dev dad/small/20240124_130029.jpg" data-full="wound/Dev dad/20240124_130029.jpg" alt="Wound progress" loading="lazy">
-    <img src="wound/Dev dad/small/20240124_130055.jpg" data-full="wound/Dev dad/20240124_130055.jpg" alt="Wound progress" loading="lazy">
+    <img src="wound/Dev dad/small/20240124_130023.jpg" data-full="wound/Dev dad/20240124_130023.jpg" alt="Wound progress">
+    <img src="wound/Dev dad/small/20240124_130026.jpg" data-full="wound/Dev dad/20240124_130026.jpg" alt="Wound progress">
+    <img src="wound/Dev dad/small/20240124_130029.jpg" data-full="wound/Dev dad/20240124_130029.jpg" alt="Wound progress">
+    <img src="wound/Dev dad/small/20240124_130055.jpg" data-full="wound/Dev dad/20240124_130055.jpg" alt="Wound progress">
+    
     <img src="wound/Dev dad/small/20240124_130059.jpg" data-full="wound/Dev dad/20240124_130059.jpg" alt="Wound progress" loading="lazy">
     <img src="wound/Dev dad/small/20240124_130105.jpg" data-full="wound/Dev dad/20240124_130105.jpg" alt="Wound progress" loading="lazy">
     <img src="wound/Dev dad/small/20240124_130108.jpg" data-full="wound/Dev dad/20240124_130108.jpg" alt="Wound progress" loading="lazy">
@@ -172,14 +173,15 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Popup functionality
+    // UPDATED Popup functionality
     const galleryImages = document.querySelectorAll('.gallery img');
     const popup = document.getElementById('popup');
     const popupImg = document.getElementById('popupImg');
 
     galleryImages.forEach(img => {
       img.addEventListener('click', () => {
-        popupImg.src = img.src;
+        // This is the fix! It now pulls from data-full instead of src
+        popupImg.src = img.getAttribute('data-full');
         popup.style.display = 'flex';
       });
     });
@@ -187,6 +189,8 @@
     popup.addEventListener('click', (e) => {
       if (e.target === popup || e.target.classList.contains('close')) {
         popup.style.display = 'none';
+        // Clear the image source when closing to prevent a brief flash of the old image next time
+        popupImg.src = ""; 
       }
     });
   </script>
