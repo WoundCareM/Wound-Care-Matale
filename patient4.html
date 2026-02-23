@@ -47,6 +47,16 @@
       border-radius: 5px;
       text-decoration: none;
     }
+    
+    /* Fixed: The gallery class needs Flexbox to look right */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 30px;
+    }
+
     .gallery img {
       width: 150px;
       margin: 10px;
@@ -102,28 +112,25 @@
     <h1>Patient 4 - Wound Progress</h1>
     <p>Wound Care Matale</p>
   </header>
-  <!-- Back Button -->
   <a class="back" href="index.html">⬅ Back to Home</a>
   <main>
     <h2>Patient 4</h2>
+    
     <div class="gallery">
-     <div class="gallery">
-    <img src="wound/Kiwla/small/20231123_110625.jpg" data-full="wound/Kiwla/20231123_110625.jpg" alt="patient4">
-    <img src="wound/Kiwla/small/20231123_110632.jpg" data-full="wound/Kiwla/20231123_110632.jpg" alt="patient4">
-    <img src="wound/Kiwla/small/20231221_202726.jpg" data-full="wound/Kiwla/20231221_202726.jpg" alt="patient4">
-    <img src="wound/Kiwla/small/20231221_202733.jpg" data-full="wound/Kiwla/20231221_202733.jpg" alt="patient4">
-    <img src="wound/Kiwla/small/20240122_205000.jpg" data-full="wound/Kiwla/20240122_205000.jpg" alt="patient4" loading="lazy">
-    <img src="wound/Kiwla/small/20240122_205003.jpg" data-full="wound/Kiwla/20240122_205003.jpg" alt="patient4" loading="lazy">
-    <img src="wound/Kiwla/small/20240126_161957.jpg" data-full="wound/Kiwla/20240126_161957.jpg" alt="patient4" loading="lazy">
-    <img src="wound/Kiwla/small/20240126_162003.jpg" data-full="wound/Kiwla/20240126_162003.jpg" alt="patient4" loading="lazy">
-    <img src="wound/Kiwla/small/20240206_164342.jpg" data-full="wound/Kiwla/20240206_164342.jpg" alt="patient4" loading="lazy">
-    <img src="wound/Kiwla/small/20240206_164345.jpg" data-full="wound/Kiwla/20240206_164345.jpg" alt="patient4" loading="lazy">
-    <img src="wound/Kiwla/small/20240206_164351.jpg" data-full="wound/Kiwla/20240206_164351.jpg" alt="patient4" loading="lazy">
-  </div>
+      <img src="wound/Kiwla/small/20231123_110625.jpg" data-full="wound/Kiwla/20231123_110625.jpg" alt="patient4">
+      <img src="wound/Kiwla/small/20231123_110632.jpg" data-full="wound/Kiwla/20231123_110632.jpg" alt="patient4">
+      <img src="wound/Kiwla/small/20231221_202726.jpg" data-full="wound/Kiwla/20231221_202726.jpg" alt="patient4">
+      <img src="wound/Kiwla/small/20231221_202733.jpg" data-full="wound/Kiwla/20231221_202733.jpg" alt="patient4">
+      <img src="wound/Kiwla/small/20240122_205000.jpg" data-full="wound/Kiwla/20240122_205000.jpg" alt="patient4" loading="lazy">
+      <img src="wound/Kiwla/small/20240122_205003.jpg" data-full="wound/Kiwla/20240122_205003.jpg" alt="patient4" loading="lazy">
+      <img src="wound/Kiwla/small/20240126_161957.jpg" data-full="wound/Kiwla/20240126_161957.jpg" alt="patient4" loading="lazy">
+      <img src="wound/Kiwla/small/20240126_162003.jpg" data-full="wound/Kiwla/20240126_162003.jpg" alt="patient4" loading="lazy">
+      <img src="wound/Kiwla/small/20240206_164342.jpg" data-full="wound/Kiwla/20240206_164342.jpg" alt="patient4" loading="lazy">
+      <img src="wound/Kiwla/small/20240206_164345.jpg" data-full="wound/Kiwla/20240206_164345.jpg" alt="patient4" loading="lazy">
+      <img src="wound/Kiwla/small/20240206_164351.jpg" data-full="wound/Kiwla/20240206_164351.jpg" alt="patient4" loading="lazy">
     </div>
   </main>
 
-  <!-- Popup modal -->
   <div class="popup" id="popup">
     <span id="close">&times;</span>
     <img id="popup-img" src="">
@@ -143,13 +150,20 @@
     document.querySelectorAll(".gallery img").forEach(img => {
       img.addEventListener("click", () => {
         popup.style.display = "flex";
-        popupImg.src = img.src;
+        // Fixed: Grab the high-res image from data-full
+        popupImg.src = img.getAttribute("data-full");
       });
     });
 
-    closeBtn.addEventListener("click", () => popup.style.display = "none");
+    // Fixed: Clear the image source when closing so it doesn't flash the old image
+    const closePopup = () => {
+      popup.style.display = "none";
+      popupImg.src = "";
+    };
+
+    closeBtn.addEventListener("click", closePopup);
     popup.addEventListener("click", (e) => {
-      if (e.target === popup) popup.style.display = "none";
+      if (e.target === popup) closePopup();
     });
   </script>
 </body>
