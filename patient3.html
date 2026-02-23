@@ -113,7 +113,6 @@
     <p>Wound Care Matale</p>
   </header>
 
-  <!-- Back Button -->
   <a class="back" href="index.html">⬅ Back to Home</a>
 
   <div class="gallery">
@@ -128,7 +127,6 @@
     <img src="wound/Kithsiri%20ayya/small/20240227_195823.jpg" data-full="wound/Kithsiri%20ayya/20240227_195823.jpg" alt="Patient 3" loading="lazy">
   </div>
 
-  <!-- Popup Lightbox -->
   <div class="popup" id="popup">
     <a href="#" class="close">&times;</a>
     <img id="popupImg" src="" alt="">
@@ -147,7 +145,8 @@
 
     galleryImages.forEach(img => {
       img.addEventListener('click', () => {
-        popupImg.src = img.src;
+        // Fixed: The popup now pulls the high-res image from data-full
+        popupImg.src = img.getAttribute('data-full');
         popup.style.display = 'flex';
       });
     });
@@ -155,6 +154,8 @@
     popup.addEventListener('click', (e) => {
       if (e.target === popup || e.target.classList.contains('close')) {
         popup.style.display = 'none';
+        // Added clear source to prevent flashing old images
+        popupImg.src = "";
       }
     });
   </script>
