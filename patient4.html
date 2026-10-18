@@ -1,9 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Patient 4 - Wound Care Matale</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 4 - Wound Healing Progress | Wound Care Matale</title>
+  <meta name="description" content="Wound healing progress documentation from Wound Care Matale, Sri Lanka. Professional wound treatment and follow-up care. Call 077 249 7419.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://woundcarem.github.io/Wound-Care-Matale/patient4.html">
+  <meta property="og:title" content="Case 4 - Wound Healing Progress | Wound Care Matale">
+  <meta property="og:description" content="Wound care treatment progress from Wound Care Matale, Sri Lanka.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://woundcarem.github.io/Wound-Care-Matale/patient4.html">
   <link rel="stylesheet" href="style.css">
   <style>
     body {
@@ -48,7 +55,6 @@
       text-decoration: none;
     }
     
-    /* Fixed: The gallery class needs Flexbox to look right */
     .gallery {
       display: flex;
       flex-wrap: wrap;
@@ -109,25 +115,25 @@
 </head>
 <body>
   <header>
-    <h1>Patient 4 - Wound Progress</h1>
+    <h1>Case 4 - Wound Progress</h1>
     <p>Wound Care Matale</p>
   </header>
   <a class="back" href="index.html">⬅ Back to Home</a>
   <main>
-    <h2>Patient 4</h2>
+    <h2>Case 4</h2>
     
     <div class="gallery">
-      <img src="wound/Kiwla/small/20231123_110625.jpg" data-full="wound/Kiwla/20231123_110625.jpg" alt="patient4">
-      <img src="wound/Kiwla/small/20231123_110632.jpg" data-full="wound/Kiwla/20231123_110632.jpg" alt="patient4">
-      <img src="wound/Kiwla/small/20231221_202726.jpg" data-full="wound/Kiwla/20231221_202726.jpg" alt="patient4">
-      <img src="wound/Kiwla/small/20231221_202733.jpg" data-full="wound/Kiwla/20231221_202733.jpg" alt="patient4">
-      <img src="wound/Kiwla/small/20240122_205000.jpg" data-full="wound/Kiwla/20240122_205000.jpg" alt="patient4" loading="lazy">
-      <img src="wound/Kiwla/small/20240122_205003.jpg" data-full="wound/Kiwla/20240122_205003.jpg" alt="patient4" loading="lazy">
-      <img src="wound/Kiwla/small/20240126_161957.jpg" data-full="wound/Kiwla/20240126_161957.jpg" alt="patient4" loading="lazy">
-      <img src="wound/Kiwla/small/20240126_162003.jpg" data-full="wound/Kiwla/20240126_162003.jpg" alt="patient4" loading="lazy">
-      <img src="wound/Kiwla/small/20240206_164342.jpg" data-full="wound/Kiwla/20240206_164342.jpg" alt="patient4" loading="lazy">
-      <img src="wound/Kiwla/small/20240206_164345.jpg" data-full="wound/Kiwla/20240206_164345.jpg" alt="patient4" loading="lazy">
-      <img src="wound/Kiwla/small/20240206_164351.jpg" data-full="wound/Kiwla/20240206_164351.jpg" alt="patient4" loading="lazy">
+      <img src="wound/Kiwla/small/20231123_110625.jpg" data-full="wound/Kiwla/20231123_110625.jpg" alt="Wound healing progress, day 1">
+      <img src="wound/Kiwla/small/20231123_110632.jpg" data-full="wound/Kiwla/20231123_110632.jpg" alt="Wound healing progress, day 1">
+      <img src="wound/Kiwla/small/20231221_202726.jpg" data-full="wound/Kiwla/20231221_202726.jpg" alt="Wound healing progress, week 4">
+      <img src="wound/Kiwla/small/20231221_202733.jpg" data-full="wound/Kiwla/20231221_202733.jpg" alt="Wound healing progress, week 4">
+      <img src="wound/Kiwla/small/20240122_205000.jpg" data-full="wound/Kiwla/20240122_205000.jpg" alt="Wound healing progress, week 9" loading="lazy">
+      <img src="wound/Kiwla/small/20240122_205003.jpg" data-full="wound/Kiwla/20240122_205003.jpg" alt="Wound healing progress, week 9" loading="lazy">
+      <img src="wound/Kiwla/small/20240126_161957.jpg" data-full="wound/Kiwla/20240126_161957.jpg" alt="Wound healing progress, week 9" loading="lazy">
+      <img src="wound/Kiwla/small/20240126_162003.jpg" data-full="wound/Kiwla/20240126_162003.jpg" alt="Wound healing progress, week 9" loading="lazy">
+      <img src="wound/Kiwla/small/20240206_164342.jpg" data-full="wound/Kiwla/20240206_164342.jpg" alt="Wound healing progress, week 11" loading="lazy">
+      <img src="wound/Kiwla/small/20240206_164345.jpg" data-full="wound/Kiwla/20240206_164345.jpg" alt="Wound healing progress, week 11" loading="lazy">
+      <img src="wound/Kiwla/small/20240206_164351.jpg" data-full="wound/Kiwla/20240206_164351.jpg" alt="Wound healing progress, week 11" loading="lazy">
     </div>
   </main>
 
@@ -150,12 +156,10 @@
     document.querySelectorAll(".gallery img").forEach(img => {
       img.addEventListener("click", () => {
         popup.style.display = "flex";
-        // Fixed: Grab the high-res image from data-full
         popupImg.src = img.getAttribute("data-full");
       });
     });
 
-    // Fixed: Clear the image source when closing so it doesn't flash the old image
     const closePopup = () => {
       popup.style.display = "none";
       popupImg.src = "";
