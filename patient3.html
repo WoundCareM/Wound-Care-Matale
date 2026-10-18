@@ -1,9 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Patient 3 - Wound Care Matale</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case 3 - Wound Healing Progress | Wound Care Matale</title>
+  <meta name="description" content="Wound healing progress documentation from Wound Care Matale, Sri Lanka. Professional wound treatment and follow-up care. Call 077 249 7419.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://woundcarem.github.io/Wound-Care-Matale/patient3.html">
+  <meta property="og:title" content="Case 3 - Wound Healing Progress | Wound Care Matale">
+  <meta property="og:description" content="Wound care treatment progress from Wound Care Matale, Sri Lanka.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://woundcarem.github.io/Wound-Care-Matale/patient3.html">
   <link rel="stylesheet" href="style.css">
   <style>
     body {
@@ -104,27 +111,26 @@
       padding: 15px 0;
       margin-top: 30px;
     }
-
   </style>
 </head>
 <body>
   <header>
-    <h1>Patient 3 - Wound Progress</h1>
+    <h1>Case 3 - Wound Progress</h1>
     <p>Wound Care Matale</p>
   </header>
 
   <a class="back" href="index.html">⬅ Back to Home</a>
 
   <div class="gallery">
-    <img src="wound/Kithsiri%20ayya/small/20240219_205748.jpg" data-full="wound/Kithsiri%20ayya/20240219_205748.jpg" alt="Patient 3">
-    <img src="wound/Kithsiri%20ayya/small/20240219_205751.jpg" data-full="wound/Kithsiri%20ayya/20240219_205751.jpg" alt="Patient 3">
-    <img src="wound/Kithsiri%20ayya/small/20240219_205756.jpg" data-full="wound/Kithsiri%20ayya/20240219_205756.jpg" alt="Patient 3">
-    <img src="wound/Kithsiri%20ayya/small/20240221_211046.jpg" data-full="wound/Kithsiri%20ayya/20240221_211046.jpg" alt="Patient 3">
-    <img src="wound/Kithsiri%20ayya/small/20240221_211049.jpg" data-full="wound/Kithsiri%20ayya/20240221_211049.jpg" alt="Patient 3" loading="lazy">
-    <img src="wound/Kithsiri%20ayya/small/20240221_211054.jpg" data-full="wound/Kithsiri%20ayya/20240221_211054.jpg" alt="Patient 3" loading="lazy">
-    <img src="wound/Kithsiri%20ayya/small/20240221_211233.jpg" data-full="wound/Kithsiri%20ayya/20240221_211233.jpg" alt="Patient 3" loading="lazy">
-    <img src="wound/Kithsiri%20ayya/small/20240227_195820.jpg" data-full="wound/Kithsiri%20ayya/20240227_195820.jpg" alt="Patient 3" loading="lazy">
-    <img src="wound/Kithsiri%20ayya/small/20240227_195823.jpg" data-full="wound/Kithsiri%20ayya/20240227_195823.jpg" alt="Patient 3" loading="lazy">
+    <img src="wound/Kithsiri%20ayya/small/20240219_205748.jpg" data-full="wound/Kithsiri%20ayya/20240219_205748.jpg" alt="Wound healing progress, day 1">
+    <img src="wound/Kithsiri%20ayya/small/20240219_205751.jpg" data-full="wound/Kithsiri%20ayya/20240219_205751.jpg" alt="Wound healing progress, day 1" loading="lazy">
+    <img src="wound/Kithsiri%20ayya/small/20240219_205756.jpg" data-full="wound/Kithsiri%20ayya/20240219_205756.jpg" alt="Wound healing progress, day 1" loading="lazy">
+    <img src="wound/Kithsiri%20ayya/small/20240221_211046.jpg" data-full="wound/Kithsiri%20ayya/20240221_211046.jpg" alt="Wound healing progress, day 2" loading="lazy">
+    <img src="wound/Kithsiri%20ayya/small/20240221_211049.jpg" data-full="wound/Kithsiri%20ayya/20240221_211049.jpg" alt="Wound healing progress, day 2" loading="lazy">
+    <img src="wound/Kithsiri%20ayya/small/20240221_211054.jpg" data-full="wound/Kithsiri%20ayya/20240221_211054.jpg" alt="Wound healing progress, day 2" loading="lazy">
+    <img src="wound/Kithsiri%20ayya/small/20240221_211233.jpg" data-full="wound/Kithsiri%20ayya/20240221_211233.jpg" alt="Wound healing progress, day 2" loading="lazy">
+    <img src="wound/Kithsiri%20ayya/small/20240227_195820.jpg" data-full="wound/Kithsiri%20ayya/20240227_195820.jpg" alt="Wound healing progress, week 1" loading="lazy">
+    <img src="wound/Kithsiri%20ayya/small/20240227_195823.jpg" data-full="wound/Kithsiri%20ayya/20240227_195823.jpg" alt="Wound healing progress, week 1" loading="lazy">
   </div>
 
   <div class="popup" id="popup">
@@ -145,7 +151,6 @@
 
     galleryImages.forEach(img => {
       img.addEventListener('click', () => {
-        // Fixed: The popup now pulls the high-res image from data-full
         popupImg.src = img.getAttribute('data-full');
         popup.style.display = 'flex';
       });
@@ -154,7 +159,6 @@
     popup.addEventListener('click', (e) => {
       if (e.target === popup || e.target.classList.contains('close')) {
         popup.style.display = 'none';
-        // Added clear source to prevent flashing old images
         popupImg.src = "";
       }
     });
